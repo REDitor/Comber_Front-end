@@ -16,6 +16,9 @@ export default {
 		Navigation,
 		Footer
 	},
+	created() {
+		this.$store.dispatch('autoLogin');
+	}
 };
 </script>
 
