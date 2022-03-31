@@ -10,7 +10,7 @@ const store = createStore({
         }
     },
     getters: {
-
+       
     },
     mutations: {
         authenticateUser(state, parameters) {
@@ -32,7 +32,7 @@ const store = createStore({
                             .defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
                         localStorage.setItem('token', res.data.jwt);
                         localStorage.setItem('username', res.data.username);
-                        localStorage.setItem('')
+                        localStorage.setItem('role', res.data.role);
                         commit('authenticateUser', res.data);
                         resolve();
                     })

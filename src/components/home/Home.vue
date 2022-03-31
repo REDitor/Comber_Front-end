@@ -18,9 +18,6 @@ export default {
 	components: {
 		PostList,
 	},
-  mounted() {
-    console.log(this.$store.state)
-  }
 };
 </script>
 
