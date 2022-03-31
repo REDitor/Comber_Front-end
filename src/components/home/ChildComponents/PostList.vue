@@ -4,7 +4,7 @@
 
 <script>
 import Post from './Post.vue';
-import axios from 'axios';
+import axios from './../../../axios-auth';
 
 export default {
 	name: "PostList",
@@ -22,7 +22,7 @@ export default {
 	methods: {
 		updatePosts() {
 			axios
-				.get('http://localhost/posts')
+				.get('/posts')
 				.then((res) => {
 					console.log(res.data);
 					this.posts = res.data;
