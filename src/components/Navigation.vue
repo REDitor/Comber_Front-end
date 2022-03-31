@@ -5,6 +5,7 @@
                 <li class="nav-item">
                     <router-link to="/" class="nav-link" active-class="text-success">Home</router-link>
                 </li>
+                <!-- FIXME: v-if's only happening upon extra reload (not when page loads) -->
                 <li class="nav-item">
                     <router-link v-if="this.$store.state.token" to="/myposts" class="nav-link" active-class="text-success">My Posts</router-link>
                 </li>
