@@ -24,7 +24,6 @@ export default {
 			axios
 				.get('/posts')
 				.then((res) => {
-					console.log(res.data);
 					this.posts = res.data;
 				})
 				.catch((err) => console.error(err));

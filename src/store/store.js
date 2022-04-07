@@ -56,6 +56,9 @@ const store = createStore({
                 });
             }
         },
+        logout() {
+            //TODO: create logout
+        }
     }
 });
 
