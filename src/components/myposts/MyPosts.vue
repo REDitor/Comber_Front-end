@@ -1,9 +1,9 @@
 <template>
   <section>
 		<div class="container">
-			<h1 class="mb-5">Welcome to Comber</h1>
+			<h1 class="mb-5">{{ this.getUsername() }}</h1>
 			<div>
-        <h2>Recent Posts:</h2>
+        <h2>Your Posts:</h2>
 				<PostList class="row" />
 			</div>
 		</div>
@@ -17,6 +17,11 @@ export default {
     name: 'MyPosts',
     components: {
         PostList,
+    },
+    methods: {
+        getUsername() {
+            return localStorage.getItem('username');
+        }
     }
 }
 </script>

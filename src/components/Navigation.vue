@@ -27,12 +27,9 @@ export default {
 			return this.$store.state.token;
 		},
 		logout() {
+            this.$router.push('/');
 			this.$store
 				.dispatch('logout')
-				.then(() => {
-					this.$router.replace('/');
-                    this.$forceUpdate()
-				})
                 .catch((err) => console.error(err));
 		},
 	},

@@ -3,7 +3,7 @@
 	<div class="container page">
 		<router-view />
 	</div>
-	<Footer class="fixed-bottom" />
+	<Footer v-if="this.$route.path != '/login'" class="fixed-bottom" />
 </template>
 
 <script>
@@ -23,6 +23,10 @@ export default {
 </script>
 
 <style>
+body {
+	height: 100vh;
+}
+
 .page {
 	margin-top: 6rem;
 	margin-bottom: 6rem;

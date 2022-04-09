@@ -11,7 +11,7 @@ const store = createStore({
         }
     },
     getters: {
-       
+
     },
     mutations: {
         authenticateUser(state, parameters) {
@@ -58,11 +58,12 @@ const store = createStore({
                     token: token,
                     username: username,
                     role: role
-                });
+                })
             }
         },
         logout() {
             localStorage.clear();
+            window.location.reload();
         }
     }
 });
