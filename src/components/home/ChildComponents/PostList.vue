@@ -1,5 +1,5 @@
 <template>
-        <Post v-for="post in posts" :key="post.id" :post="post" class="my-4 bg-success text-light" />
+	<Post v-for="post in posts" :key="post.id" :post="post" class="my-4 bg-success text-light" />
 </template>
 
 <script>
@@ -8,9 +8,9 @@ import axios from './../../../axios-auth';
 
 export default {
 	name: "PostList",
-    components: {
-        Post,
-    },
+	components: {
+		Post,
+	},
 	data() {
 		return {
 			posts: [],
@@ -21,12 +21,25 @@ export default {
 	},
 	methods: {
 		updatePosts() {
-			axios
-				.get('/posts')
-				.then((res) => {
-					this.posts = res.data;
-				})
-				.catch((err) => console.error(err));
+			switch (this.$route.path) {
+				case '/':
+					axios
+						.get('/posts')
+						.then((res) => {
+							this.posts = res.data;
+						})
+						.catch((err) => console.error(err));
+					break;
+
+				case '/myposts':
+					axios
+						.get('/posts/' + localStorage.getItem('id'))
+						.then((res) => {
+							this.posts = res.data;
+						})
+						.catch((err) => console.error(err));
+					break;
+			}
 		}
 	}
 }

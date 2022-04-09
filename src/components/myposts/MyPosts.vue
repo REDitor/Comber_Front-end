@@ -1,5 +1,5 @@
 <template>
-	<section>
+  <section>
 		<div class="container">
 			<h1 class="mb-5">Welcome to Comber</h1>
 			<div>
@@ -11,15 +11,16 @@
 </template>
 
 <script>
-import PostList from './childcomponents/PostList.vue';
+import PostList from '../home/childcomponents/PostList.vue';
 
 export default {
-	name: "Home",
-	components: {
-		PostList,
-	},
-};
+    name: 'MyPosts',
+    components: {
+        PostList,
+    }
+}
 </script>
 
 <style scoped>
+
 </style>

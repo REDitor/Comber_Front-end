@@ -3,7 +3,7 @@
 		<div class="card-body">
 			<h3 class="card-title">{{ post.postedBy }}</h3>
             <p class="card-text">{{ post.message }}</p>
-            <small class="card-text">{{ formatDateTime(post.postedAt) }}</small>
+            <small class="card-text fw-bold">{{ formatDateTime(post.postedAt) }}</small>
 		</div>
 	</div>
 </template>

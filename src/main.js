@@ -5,7 +5,7 @@ import store from './store/store';
 
 import Home from './components/home/Home.vue';
 import Login from './components/Login.vue';
-import MyPosts from './components/MyPosts.vue';
+import MyPosts from './components/myposts/MyPosts.vue';
 
 const routes = [
     { path: '/', component: Home },

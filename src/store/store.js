@@ -4,6 +4,7 @@ import { createStore } from 'vuex';
 const store = createStore({
     state() {
         return {
+            id: null,
             token: null,
             username: null,
             role: null
@@ -14,6 +15,7 @@ const store = createStore({
     },
     mutations: {
         authenticateUser(state, parameters) {
+            state.id = parameters.id;
             state.token = parameters.token;
             state.username = parameters.username;
             state.role = parameters.role;
@@ -30,6 +32,7 @@ const store = createStore({
                     .then((res) => {
                         axios
                             .defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
+                        localStorage.setItem('id', res.data.id);
                         localStorage.setItem('token', res.data.jwt);
                         localStorage.setItem('username', res.data.username);
                         localStorage.setItem('role', res.data.role);
@@ -42,14 +45,16 @@ const store = createStore({
             })
         },
         autoLogin({ commit }) {
+            const id = localStorage.getItem('id');
             const token = localStorage.getItem('token');
             const username = localStorage.getItem('username');
             const role = localStorage.getItem('role');
 
-            if (token && username && role) {
+            if (id && token && username && role) {
                 axios
                     .defaults.headers.common['Authorization'] = `Bearer ${token}`;
                 commit('authenticateUser', {
+                    id: id,
                     token: token,
                     username: username,
                     role: role
@@ -57,7 +62,7 @@ const store = createStore({
             }
         },
         logout() {
-            //TODO: create logout
+            localStorage.clear();
         }
     }
 });
