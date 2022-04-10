@@ -1,9 +1,9 @@
 <template>
 	<Navigation v-if="this.$route.path != '/login'" class="fixed-top" />
 	<div class="container page">
-		<router-view />
+		<router-view :class="{ notLoggedIn: !this.$store.state.token && this.$route.path != '/login' }" />
 	</div>
-	<Footer v-if="this.$route.path != '/login'" class="fixed-bottom" />
+	<Footer v-if="this.$route.path != '/login'" class="bottom-0" />
 </template>
 
 <script>
@@ -23,12 +23,13 @@ export default {
 </script>
 
 <style>
-body {
-	height: 100vh;
-}
-
 .page {
 	margin-top: 6rem;
 	margin-bottom: 6rem;
+	min-height: 55.5vh;
+}
+
+.notLoggedIn {
+	filter: blur(4px);
 }
 </style>

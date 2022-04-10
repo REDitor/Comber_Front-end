@@ -1,5 +1,9 @@
 <template>
 	<nav class="navbar navbar-dark bg-dark py-2 navbar-expand-md">
+		<a href="/" class="position-absolute text-decoration-none">
+		<!-- logo from icons-icons.com -->
+			<img src="../assets/logo.png" height="50">
+		</a>
 		<div class="container">
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -8,10 +12,17 @@
 				<li v-if="isLoggedIn()" class="nav-item">
 					<router-link to="/myposts" class="nav-link" active-class="text-success">My Posts</router-link>
 				</li>
-				<li v-if="isLoggedIn()">
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<router-link v-if="isLoggedIn()" to="/newpost" class="text-success text-decoration-none fas fa-plus"></router-link>
+				</li>
+			</ul>
+			<ul class="navbar-nav">
+				<li v-if="isLoggedIn()" class="nav-item">
 					<a v-on:click="logout()" class="btn btn-outline-success" active-class="text-success">Logout</a>
 				</li>
-				<li v-if="!isLoggedIn()" class="nav-item ms-md-5">
+				<li v-if="!isLoggedIn()" class="nav-item">
 					<router-link to="/login" class="btn btn-success" active-class="text-success">Login</router-link>
 				</li>
 			</ul>
@@ -27,10 +38,13 @@ export default {
 			return this.$store.state.token;
 		},
 		logout() {
-            this.$router.push('/');
+			// this.$router.push('/');
 			this.$store
 				.dispatch('logout')
-                .catch((err) => console.error(err));
+				.then(() => {
+					this.$router.replace('/');
+				})
+				.catch((err) => console.error(err));
 		},
 	},
 }

@@ -1,5 +1,10 @@
 <template>
-	<Post v-for="post in posts" :key="post.id" :post="post" class="my-4 bg-success text-light" />
+	<Post 
+	v-for="post in posts" 
+	:key="post.id" 
+	:post="post"
+	@update="updatePosts"
+	class="my-4 bg-success text-light" />
 </template>
 
 <script>
@@ -33,7 +38,7 @@ export default {
 
 				case '/myposts':
 					axios
-						.get('/posts/' + localStorage.getItem('id'))
+						.get('/posts/users/' + localStorage.getItem('id'))
 						.then((res) => {
 							this.posts = res.data;
 						})

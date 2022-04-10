@@ -1,9 +1,8 @@
 <template>
 	<section>
 		<div class="container">
-			<h1 class="mb-5">Welcome to Comber</h1>
 			<div>
-        <h2>Recent Posts:</h2>
+				<h2>Recent Posts:</h2>
 				<PostList class="row" />
 			</div>
 		</div>
