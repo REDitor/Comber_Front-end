@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-dark bg-dark py-2 navbar-expand-md">
 		<a href="/" class="position-absolute text-decoration-none">
 		<!-- logo from icons-icons.com -->
-			<img src="../assets/logo.png" height="50">
+			<img src="../../assets/logo.png" height="50">
 		</a>
 		<div class="container">
 			<ul class="navbar-nav">
@@ -38,7 +38,6 @@ export default {
 			return this.$store.state.token;
 		},
 		logout() {
-			// this.$router.push('/');
 			this.$store
 				.dispatch('logout')
 				.then(() => {
@@ -51,4 +50,15 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 800px) {
+	img {
+		display: block;
+	}
+}
+
+@media (max-width: 800px) {
+	img {
+		display: none;
+	}
+}
 </style>

@@ -23,7 +23,7 @@
                 v-model="password"
               />
             </div>
-            <button type='button' @keyup.enter="login()" @click="login()" class="btn btn-success col-12 mb-3">Login</button>
+            <button type="button" @keyup.enter="login()" @click="login()" class="btn btn-success col-12 mb-3">Login</button>
             <router-link to="/" class="text-decoration-none text-success">Cancel Login</router-link>
           </form>
         </div>
@@ -49,7 +49,7 @@ export default {
           password: this.password
         })
         .then(() => {
-          this.$router.replace('/');
+          this.$router.push('/');
         })
         .catch((err) => {
           this.errorMessage = err;

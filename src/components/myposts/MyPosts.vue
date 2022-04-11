@@ -1,9 +1,8 @@
 <template>
 	<section>
 		<div class="container">
-			<h1 class="mb-5">{{ this.getUsername() }}</h1>
+			<h1 class="mb-4">{{ this.getUsername() }}'s Posts:</h1>
 			<div>
-				<h2>Your Posts:</h2>
 				<PostList class="row" />
 			</div>
 		</div>
