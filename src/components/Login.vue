@@ -49,7 +49,7 @@ export default {
           password: this.password
         })
         .then(() => {
-          this.$router.push('/');
+          this.$router.replace('/');
         })
         .catch((err) => {
           this.errorMessage = err;
