@@ -32,7 +32,7 @@ export default {
 	},
 	methods: {
 		createPost() {
-			this.newPost.postedAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
+			this.newPost.postedAt = this.getDateTime();
 			axios
 				.post('/posts', this.newPost)
 				.then((res) => {
@@ -47,6 +47,12 @@ export default {
 					console.error(err)
 				});
 		},
+		getDateTime() {
+			let postedAt = new Date();
+			postedAt.setHours(postedAt.getHours() + 2);
+			postedAt = postedAt.toISOString().slice(0, 19).replace('T', ' ');
+			return postedAt;
+		}
 	}
 }
 </script>
